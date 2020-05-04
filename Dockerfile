@@ -10,7 +10,7 @@ RUN apt-get update -yqq \
 
 
 # install gems with native extendsions nokogiri
-RUN gem install nokogiri -v "1.6.8.1"
+RUN gem install nokogiri -v "1.10.8"
 
 WORKDIR /usr/src/app
 COPY Gemfile* ./
