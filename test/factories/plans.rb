@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :plan do
-    name "tom"
-    description "rails engineer"
+    name { Faker::Hipster.sentence }
+    description { Faker::Hipster.paragraph }
     association(:user)
   end
 end

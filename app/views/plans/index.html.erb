@@ -1,5 +1,9 @@
 <h1>Plans</h1>
 
+<div class="new-plan">
+  <%= link_to "New Plan", new_plan_path %>
+</div>
+
 <div class="plan">
   <% @plans.each do |plan| %>
     <h3>
@@ -10,7 +14,7 @@
       <%= plan.description %>
     </p>
     
-    <ul>
+    <ul class="plan-actions">
       <li>
         <%= link_to "Edit", edit_plan_path(plan) %>
       </li>
