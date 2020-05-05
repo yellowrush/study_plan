@@ -29,5 +29,10 @@ module StudyPlan
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.test_framework :minitest, spec: true
+    end
+
   end
 end
