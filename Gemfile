@@ -18,6 +18,8 @@ gem 'nokogiri', '1.10.8'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'minitest-rails', '~> 5.2.0'
+  gem 'factory_girl_rails', '~> 4.7'
 end
 
 group :development do
