@@ -1,6 +1,6 @@
-class CreatePlans < ActiveRecord::Migration[5.2]
+class CreateRecipes < ActiveRecord::Migration[5.2]
   def change
-    create_table :plans do |t|
+    create_table :recipes do |t|
       t.string :name, null: false
       t.text :description, null: false
       t.belongs_to :user, null:false, foreign_key: true
@@ -8,6 +8,6 @@ class CreatePlans < ActiveRecord::Migration[5.2]
       t.timestamps null: false
     end
     
-    add_index :plans, [:user_id, :name]
+    add_index :recipes, [:user_id, :name]
   end
 end

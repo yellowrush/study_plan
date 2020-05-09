@@ -10,19 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_020611) do
+ActiveRecord::Schema.define(version: 2020_05_09_073026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "plans", force: :cascade do |t|
+  create_table "recipes", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "name"], name: "index_plans_on_user_id_and_name"
-    t.index ["user_id"], name: "index_plans_on_user_id"
+    t.index ["user_id", "name"], name: "index_recipes_on_user_id_and_name"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "studies", force: :cascade do |t|
+    t.date "date", null: false
+    t.bigint "study_plan_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_studies_on_recipe_id"
+    t.index ["study_plan_id"], name: "index_studies_on_study_plan_id"
+  end
+
+  create_table "study_plans", force: :cascade do |t|
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_study_plans_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,5 +55,8 @@ ActiveRecord::Schema.define(version: 2020_05_05_020611) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
-  add_foreign_key "plans", "users"
+  add_foreign_key "recipes", "users"
+  add_foreign_key "studies", "recipes"
+  add_foreign_key "studies", "study_plans"
+  add_foreign_key "study_plans", "users"
 end

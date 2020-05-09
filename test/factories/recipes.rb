@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :plan do
+  factory :recipe do
     name { Faker::Hipster.sentence }
     description { Faker::Hipster.paragraph }
     association(:user)

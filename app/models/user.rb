@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   include Clearance::User
 
-  has_many :plans
+  has_many :recipes
 end
