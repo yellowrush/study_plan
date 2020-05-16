@@ -1,0 +1,27 @@
+<h1>Study Plans</h1>
+
+<% if @current_study_plan.present? %>
+  <h2>Current study Plan</h2>
+  <div>
+    <ul class="studies">
+      <% @current_study_plan.studies.each do |study| %>
+        <li class="study">
+          <%= study.date %> - <%= link_to study.recipe, recipe_path(study.recipe) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h3>All Study Plans</h3>
+
+<% @study_plans.each do |study_plan| %>
+  <li class="study-plan">
+    <%= link_to study_plan, study_plan_path(study_plan) %>
+  </li>
+<% end %>
+
+
+<div class="actions">
+  <%= link_to "New Study Plan", new_study_plan_path %>
+</div>

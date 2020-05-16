@@ -1,0 +1,18 @@
+<h1>Study Plan: <%= @study_plan %> </h1>
+
+<ul class="studies">
+  <% @study_plan.studies.each do |study| %>
+    <li class="study">
+      <%= study.date %> - <%= link_to study.recipe, recipe_path(study.recipe) %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="actions">
+  <ul class="study-plan-actions">
+    <li> <%= link_to "Edit Study Plan", edit_study_plan_path(@study_plan) %> </li>
+    <li> <%= link_to "Delete", edit_study_plan_path(@study_plan), data: {
+      confirm: "Are you sure to delete: #{@study_plan}?",
+    }, method: :delete %> </li>
+  </ul>
+</div>

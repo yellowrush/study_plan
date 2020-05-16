@@ -1,0 +1,23 @@
+<%= render partial: "particals/errors" %>
+
+<%= form_for @study_plan do |form| %>
+
+  <%= form.hidden_field :start_date %>
+  <%= form.hidden_field :end_date %>
+
+  <div class="studies">
+    <%= form.fields_for :studies do |study_fields| %>
+      <%= study_fields.hidden_field :id %>
+      <%= study_fields.hidden_field :date %>
+
+      <p> <%= study_fields.object.date.to_s %></p>
+      <div class="form-group">
+        <%= study_fields.label :recipe_id %>
+        <%= study_fields.select :recipe_id, current_user.recipe_options %> 
+      </div>
+    <% end %> 
+  </div>
+  <div class="form-actions">
+    <%= form.submit %>
+  </div>
+<% end %>
