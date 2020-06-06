@@ -1,28 +1,24 @@
-<h1>Recipes</h1>
-
-<div class="new-recipe">
-  <%= link_to "New Recipe", new_recipe_path %>
+<div class="title well well-small">
+  <h4>学習進度管理</h4>
+  <%= link_to "新規予定", new_recipe_path, class: "btn btn-sm btn-success btn-inline" %>
 </div>
 
-<div class="recipe">
-  <% @recipes.each do |recipe| %>
-    <h3>
-      <%= link_to recipe.name, recipe_path(recipe) %>
-    </h3>
-
-    <p>
-      <%= recipe.description %>
-    </p>
-    
-    <ul class="recipe-actions">
-      <li>
-        <%= link_to "Edit", edit_recipe_path(recipe) %>
-      </li>
-      <li>
-        <%= link_to "Delete", recipe_path(recipe), data: {
-          confirm: "Are you sure to delete: #{recipe.name}?",
-        }, method: :delete %>
-      </li>
-    </ul>
-  <% end %>
-</div>  
+<div class="content">
+  <div class="recipes">
+    <% @recipes.each do |recipe| %>
+      <div class="recipe">
+        <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+        <p><%= recipe.description %></p>
+        <ul class="recipe-actions">
+          <li><%= link_to "編集", edit_recipe_path(recipe) %></li>
+          <li>
+            <%= link_to "削除", recipe_path(recipe), data: {
+              confirm: "Are you sure to delete: #{recipe.name}?",
+            }, method: :delete %>
+          </li>
+        </ul>
+      </div>
+      
+    <% end %>
+  </div>  
+</div>

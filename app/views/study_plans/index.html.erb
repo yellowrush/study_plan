@@ -1,4 +1,7 @@
-<h1>Study Plans</h1>
+<div class="title well well-small">
+  <h4>学習プランナー</h4>
+  <%= link_to "新規プラン", new_study_plan_path, class: "btn btn-sm btn-success btn-inline" %>
+</div>
 
 <% if @current_study_plan.present? %>
   <h2>Current study Plan</h2>
@@ -13,15 +16,8 @@
   </div>
 <% end %>
 
-<h3>All Study Plans</h3>
-
 <% @study_plans.each do |study_plan| %>
   <li class="study-plan">
     <%= link_to study_plan, study_plan_path(study_plan) %>
   </li>
 <% end %>
-
-
-<div class="actions">
-  <%= link_to "New Study Plan", new_study_plan_path %>
-</div>

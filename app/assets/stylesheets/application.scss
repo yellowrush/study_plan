@@ -1,0 +1,26 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar{
+  margin-top: 2rem;
+  .navbar-brand{
+    font-size: 1.6rem;
+    border-right: #e0e0e0 solid .1rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.title{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  .btn-inline{
+    align-self: auto;
+  }
+}
+
+.glyphicon.logo{
+  font-size: 2rem;
+  margin-right: 1rem;
+}
