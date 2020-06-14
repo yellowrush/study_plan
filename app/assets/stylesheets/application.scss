@@ -13,14 +13,31 @@
 
 .title{
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
   .btn-inline{
     align-self: auto;
+  }
+}
+.caption{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  h3{
+    margin: 0;
+  }
+  p{
+    margin: 0;
   }
 }
 
 .glyphicon.logo{
   font-size: 2rem;
   margin-right: 1rem;
+}
+.breadcrumb{
+  margin: 0;
 }

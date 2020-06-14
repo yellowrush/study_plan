@@ -26,13 +26,13 @@
           <ul class="nav navbar-nav navbar-left">
             <li class="divider-vertical"></li>
             <% if signed_in? %>
-              <li>
+              <li class="<%= current_controller?('study_plans') ? 'active' : '' %>">
                 <%= link_to study_plans_path do %>
                   <i class="glyphicon glyphicon-briefcase"></i>
                   学習
                 <% end %>
               </li>
-              <li>
+              <li  class="<%= current_controller?('recipes') ? 'active' : '' %>">
                 <%= link_to recipes_path do %>
                   <i class="glyphicon glyphicon-calendar"></i>
                   進度
