@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = current_user.recipes.find(params[:id])
-    if @recipe.destroy
+    if @recipe.destroy!
       redirect_to recipes_path, notice: "#{@recipe.name}を削除しました!"
     else
       @errors = @recipe.errors.full_messages

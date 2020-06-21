@@ -1,16 +1,25 @@
-<h1> New Study Plan </h1>
+<div class="title">
+  <h3>新規プラン</h3>
 
-<%= form_for @study_plan, url: new_study_plan_path, method: "GET" do |form| %>
-  <div class="form-control">
+  <div class="btn-group">
+    <%= link_to study_plans_path, class: "btn btn-sm btn-default" do %>
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      戻す
+    <% end %>
+  </div>
+</div>
+
+<%= form_for @study_plan, url: new_study_plan_path, method: "GET", html: { class: "form-inline " } do |form| %>
+  <div class="form-group">
     <%= form.label :start_date %>
-    <%= form.text_field :start_date, type: "date" %>
+    <%= form.text_field :start_date, class: "form-control", type: "date" %>
   </div>
-  <div class="form-control">
+  <div class="form-group">
     <%= form.label :end_date %>
-    <%= form.text_field :end_date, type: "date" %>
+    <%= form.text_field :end_date, class: "form-control", type: "date" %>
   </div>
-  <div class="action">
-    <%= form.submit "Generate Plan" %>
+  <div class="form-group action">
+    <%= form.submit "Generate Plan", class: "btn btn-default" %>
   </div>
 
 <% end %>
